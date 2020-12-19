@@ -11,7 +11,22 @@ namespace ProjetoEcommerce.Repositorio.Config
     {
         public void Configure(EntityTypeBuilder<Produto> builder)
         {
-            throw new NotImplementedException();
+            builder.HasKey(p => p.Id);
+
+            //Buider utiliza o padrão Fluent
+            builder
+                .Property(u => u.Nome)
+                .IsRequired()
+                .HasMaxLength(50);
+
+            builder
+            .Property(p => p.Descricao)
+            .IsRequired()
+            .HasMaxLength(400);
+
+            builder
+                .Property(p => p.Preco)
+                .IsRequired()
         }
     }
 }
