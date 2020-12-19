@@ -1,0 +1,6 @@
+{
+  "ConnectionStrings": {
+    "SqlServerConnection": "",
+    "ProjetoDB": "server=localhost;uid=root;pwd=jessica@;database=ProjetoDB"
+  }
+}

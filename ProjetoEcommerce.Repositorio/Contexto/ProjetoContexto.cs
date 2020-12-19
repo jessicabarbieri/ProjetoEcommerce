@@ -15,5 +15,9 @@ namespace ProjetoEcommerce.Repositorio.Contexto
         public DbSet<ItemPedido> ItensPedidos { get; set; }
         public DbSet<FormaPagamento> FormaPagamento { get; set; }
 
+        public ProjetoContexto(DbContextOptions options) : base(options)
+        {
+
+        }
     }
 }
