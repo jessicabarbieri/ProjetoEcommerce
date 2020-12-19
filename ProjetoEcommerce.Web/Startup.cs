@@ -30,7 +30,8 @@ namespace ProjetoEcommerce.Web
 
             var connectionString = Configuration.GetConnectionString("ProjetoDB");
             services.AddDbContext<ProjetoContexto>(option =>
-                                                        option.UseMySql(connectionString,
+                                                        option.UseLazyLoadingProxies()
+                                                        .UseMySql(connectionString,
                                                                             m => m.MigrationsAssembly("ProjetoEcommerce.Repositorio")));
 
 

@@ -29,6 +29,10 @@ namespace ProjetoEcommerce.Repositorio.Config
                 .IsRequired()
                 .HasMaxLength(50);
 
+            builder
+                .HasMany(u => u.Pedidos)
+                .WithOne(p => p.Usuario);
+
         }
 
     }
