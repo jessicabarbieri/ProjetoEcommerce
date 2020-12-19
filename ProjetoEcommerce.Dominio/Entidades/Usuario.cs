@@ -4,7 +4,7 @@ using System.Text;
 
 namespace ProjetoEcommerce.Dominio.Entidades
 {
-    public class Usuario
+    public class Usuario : Entidade
     {
         public int Id { get; set; }
         public string Email { get; set; }
@@ -13,6 +13,18 @@ namespace ProjetoEcommerce.Dominio.Entidades
 
         public ICollection<Pedido> Pedidos { get; set; }
 
+        public override void Validate()
+        {
+            LimparMensagensValidacao();
 
+            if (string.IsNullOrEmpty(Email))
+                AddMensagem("E-mail deve estar preenchido!");
+
+            if (string.IsNullOrEmpty(Senha))
+                AddMensagem("Senha deve estar preenchido!");
+
+            if (string.IsNullOrEmpty(Nome))
+                AddMensagem("Nome deve estar preenchido!");
+        }
     }
 }
