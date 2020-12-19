@@ -1,6 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using ProjetoEcommerce.Dominio.Entidades;
 using ProjetoEcommerce.Dominio.ObjetodeValor;
+using ProjetoEcommerce.Repositorio.Config;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -18,6 +19,19 @@ namespace ProjetoEcommerce.Repositorio.Contexto
         public ProjetoContexto(DbContextOptions options) : base(options)
         {
 
+        }
+
+        // Construtor de modelo
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            // Classes de mapeamento
+            modelBuilder.ApplyConfiguration(new UsuarioConfig());
+            modelBuilder.ApplyConfiguration(new ProdutoConfig());
+            modelBuilder.ApplyConfiguration(new PedidoConfig());
+            modelBuilder.ApplyConfiguration(new ItemPedidoConfig());
+            modelBuilder.ApplyConfiguration(new FormaPagamentoConfig());
+
+            base.OnModelCreating(modelBuilder);
         }
     }
 }
