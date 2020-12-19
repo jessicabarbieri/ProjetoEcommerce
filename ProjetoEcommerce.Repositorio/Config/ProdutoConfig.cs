@@ -26,7 +26,7 @@ namespace ProjetoEcommerce.Repositorio.Config
 
             builder
                 .Property(p => p.Preco)
-                .IsRequired()
+                .IsRequired();
         }
     }
 }

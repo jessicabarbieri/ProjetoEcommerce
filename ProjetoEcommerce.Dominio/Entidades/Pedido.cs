@@ -21,9 +21,9 @@ namespace ProjetoEcommerce.Dominio.Entidades
         public int NumeroEndereco { get; set; }
 
         public int FormaPagtoId { get; set; }
-        public FormaPagamento FormaPagto { get; set; }
+        public virtual FormaPagamento FormaPagto { get; set; }
 
-        public ICollection<ItemPedido> ItensPedido { get; set; }
+        public virtual ICollection<ItemPedido> ItensPedido { get; set; }
 
         public override void Validate()
         {

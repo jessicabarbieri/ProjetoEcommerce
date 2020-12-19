@@ -45,7 +45,8 @@ namespace ProjetoEcommerce.Repositorio.Config
                 .Property(p => p.NumeroEndereco)
                 .IsRequired();
 
-            builder.HasOne(u => u.Usuario);
+            //builder.HasOne(u => u.Usuario);
+            builder.HasOne(p => p.FormaPagto);
         }
     }
 }
