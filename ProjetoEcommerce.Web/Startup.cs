@@ -6,7 +6,9 @@ using Microsoft.AspNetCore.SpaServices.AngularCli;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using ProjetoEcommerce.Dominio.Contratos;
 using ProjetoEcommerce.Repositorio.Contexto;
+using ProjetoEcommerce.Repositorio.Repositorios;
 
 namespace ProjetoEcommerce.Web
 {
@@ -34,6 +36,10 @@ namespace ProjetoEcommerce.Web
                                                         .UseMySql(connectionString,
                                                                             m => m.MigrationsAssembly("ProjetoEcommerce.Repositorio")));
 
+            // injeção de dependencias
+            services.AddScoped<IProdutoRepositorio, ProdutoRepositorio>();
+            services.AddScoped<IUsuarioRepositorio, UsuarioRepositorio>();
+            services.AddScoped<IPedidoRepositorio, PedidoRepositorio>();
 
             // In production, the Angular files will be served from this directory
             services.AddSpaStaticFiles(configuration =>

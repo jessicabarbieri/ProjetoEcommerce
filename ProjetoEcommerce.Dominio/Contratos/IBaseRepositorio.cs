@@ -8,7 +8,7 @@ namespace ProjetoEcommerce.Dominio.Contratos
     {
         void Adicionar(TEntity entity);
         TEntity ObterPorId(int Id);
-        IEnumerable<TEntity> OberTodos();
+        IEnumerable<TEntity> ObterTodos();
         void Atualizar(TEntity entity);
         void Remover(TEntity entity);
     }

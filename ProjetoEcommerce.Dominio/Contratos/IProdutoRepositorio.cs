@@ -7,5 +7,6 @@ namespace ProjetoEcommerce.Dominio.Contratos
 {
     public interface IProdutoRepositorio : IBaseRepositorio<Produto>
     {
+
     }
 }
