@@ -23,6 +23,11 @@ namespace ProjetoEcommerce.Dominio.Entidades
             mensagemValidacao.Add(mensagem);
         }
 
+        public string ObterMensagensValidacao()
+        {
+            return string.Join(". ", mensagemValidacao);
+        }
+
         public abstract void Validate();
         public bool Valido
         {

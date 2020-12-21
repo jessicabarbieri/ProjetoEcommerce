@@ -10,6 +10,7 @@ namespace ProjetoEcommerce.Dominio.Entidades
         public string Nome { get; set; }
         public string Descricao { get; set; }
         public decimal Preco { get; set; }
+        public string NomeArquivo { get; set; }
 
         public override void Validate()
         {
