@@ -3,6 +3,7 @@ using ProjetoEcommerce.Dominio.Entidades;
 using ProjetoEcommerce.Repositorio.Contexto;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 
 namespace ProjetoEcommerce.Repositorio.Repositorios
@@ -11,6 +12,15 @@ namespace ProjetoEcommerce.Repositorio.Repositorios
     {
         public UsuarioRepositorio(ProjetoContexto projetoContexto) : base(projetoContexto)
         {
+        }
+        public Usuario Obter(string email, string senha)
+        {
+            return ProjetoContexto.Usuarios.FirstOrDefault(u => u.Email == email && u.Senha == senha);
+        }
+
+        public Usuario Obter(string email)
+        {
+            return ProjetoContexto.Usuarios.FirstOrDefault(u => u.Email == email);
         }
     }
 }

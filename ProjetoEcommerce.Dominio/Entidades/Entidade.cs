@@ -24,7 +24,7 @@ namespace ProjetoEcommerce.Dominio.Entidades
         }
 
         public abstract void Validate();
-        protected bool Valido
+        public bool Valido
         {
             get { return !mensagemValidacao.Any(); }
         }
