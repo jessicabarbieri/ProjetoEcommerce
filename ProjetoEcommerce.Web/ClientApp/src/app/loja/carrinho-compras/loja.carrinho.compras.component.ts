@@ -1,6 +1,6 @@
 import { Produto } from "../../modelo/produto";
 
-export class LojaCarrinhoCompras {
+export class LojaCarrinhoComprasComponent {
 
   public produtos: Produto[] = [];
 

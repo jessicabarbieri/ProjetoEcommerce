@@ -54,16 +54,17 @@ namespace ProjetoEcommerce.Web.Controllers
             {
                 var usuarioCadastrado = _usuarioRepositorio.Obter(usuario.Email);
 
+                usuario.Administrador = false;
+
                 if (usuarioCadastrado != null)
                     return BadRequest("Usuario já cadastrado no sistema");
 
                 usuarioCadastrado.Validate();
 
                 if (!usuarioCadastrado.Valido)
-                    //return BadRequest(usuarioCadastrado.ObterMensagensValidacao());
+                    return BadRequest(usuarioCadastrado.ObterMensagensValidacao());
 
-                    //usuario.Administrador = true;
-                    _usuarioRepositorio.Adicionar(usuario);
+                _usuarioRepositorio.Adicionar(usuario);
 
                 return Ok();
 

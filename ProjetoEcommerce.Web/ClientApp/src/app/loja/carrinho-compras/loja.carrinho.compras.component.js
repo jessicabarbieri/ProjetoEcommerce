@@ -1,10 +1,10 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-var LojaCarrinhoCompras = /** @class */ (function () {
-    function LojaCarrinhoCompras() {
+var LojaCarrinhoComprasComponent = /** @class */ (function () {
+    function LojaCarrinhoComprasComponent() {
         this.produtos = [];
     }
-    LojaCarrinhoCompras.prototype.adicionar = function (produto) {
+    LojaCarrinhoComprasComponent.prototype.adicionar = function (produto) {
         var produtoLocaStorage = localStorage.getItem("produtoLocaStorage");
         if (!produtoLocaStorage) {
             // se nao existir nada dentro do localStorage
@@ -17,13 +17,13 @@ var LojaCarrinhoCompras = /** @class */ (function () {
         }
         localStorage.setItem("produtoLocaStorage", JSON.stringify(this.produtos));
     };
-    LojaCarrinhoCompras.prototype.obterProdutos = function () {
+    LojaCarrinhoComprasComponent.prototype.obterProdutos = function () {
         var produtoLocaStorage = localStorage.getItem("produtoLocaStorage");
         if (produtoLocaStorage)
             return JSON.parse(produtoLocaStorage);
         return this.produtos;
     };
-    LojaCarrinhoCompras.prototype.removerProduto = function (produto) {
+    LojaCarrinhoComprasComponent.prototype.removerProduto = function (produto) {
         var produtoLocaStorage = localStorage.getItem("produtoLocaStorage");
         if (produtoLocaStorage) {
             this.produtos = JSON.parse(produtoLocaStorage);
@@ -31,17 +31,17 @@ var LojaCarrinhoCompras = /** @class */ (function () {
             localStorage.setItem("produtoLocaStorage", JSON.stringify(this.produtos));
         }
     };
-    LojaCarrinhoCompras.prototype.atualizar = function (produtos) {
+    LojaCarrinhoComprasComponent.prototype.atualizar = function (produtos) {
         localStorage.setItem("produtoLocaStorage", JSON.stringify(produtos));
     };
-    LojaCarrinhoCompras.prototype.temItensCarrinhoCompras = function () {
+    LojaCarrinhoComprasComponent.prototype.temItensCarrinhoCompras = function () {
         var itens = this.obterProdutos();
         return (itens.length > 0);
     };
-    LojaCarrinhoCompras.prototype.limparCarrinhoCompras = function () {
+    LojaCarrinhoComprasComponent.prototype.limparCarrinhoCompras = function () {
         localStorage.setItem("produtoLocaStorage", "");
     };
-    return LojaCarrinhoCompras;
+    return LojaCarrinhoComprasComponent;
 }());
-exports.LojaCarrinhoCompras = LojaCarrinhoCompras;
-//# sourceMappingURL=loja.carrinho.compras.js.map
+exports.LojaCarrinhoComprasComponent = LojaCarrinhoComprasComponent;
+//# sourceMappingURL=loja.carrinho.compras.component.js.map

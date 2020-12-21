@@ -10,6 +10,7 @@ namespace ProjetoEcommerce.Dominio.Entidades
         public string Email { get; set; }
         public string Senha { get; set; }
         public string Nome { get; set; }
+        public bool Administrador { get; set; }
 
         public virtual ICollection<Pedido> Pedidos { get; set; }
 

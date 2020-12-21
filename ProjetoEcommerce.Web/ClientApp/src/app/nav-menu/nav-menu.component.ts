@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { UsuarioServico } from '../servicos/usuario/usuario.servico';
-import { LojaCarrinhoCompras } from '../loja/carrinho-compras/loja.carrinho.compras';
+import { LojaCarrinhoComprasComponent } from '../loja/carrinho-compras/loja.carrinho.compras.component';
 
 @Component({
   selector: 'app-nav-menu',
@@ -10,10 +10,10 @@ import { LojaCarrinhoCompras } from '../loja/carrinho-compras/loja.carrinho.comp
 })
 export class NavMenuComponent implements OnInit {
   isExpanded = false;
-  public carrinhoCompras: LojaCarrinhoCompras;
+  public carrinhoCompras: LojaCarrinhoComprasComponent;
 
   ngOnInit(): void {
-    this.carrinhoCompras = new LojaCarrinhoCompras();
+    this.carrinhoCompras = new LojaCarrinhoComprasComponent();
   }
   constructor(private router: Router, private usuarioServico: UsuarioServico) {
 
@@ -31,9 +31,9 @@ export class NavMenuComponent implements OnInit {
     return this.usuarioServico.usuario_autenticado();
   }
 
-  //public usuario_administrador(): boolean {
-  //  return this.usuarioServico.usuario_administrador();
-  //}
+  public usuario_administrador(): boolean {
+    return this.usuarioServico.usuario_administrador();
+  }
 
   sair() {
     this.usuarioServico.limpar_sessao();
